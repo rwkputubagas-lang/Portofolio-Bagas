@@ -1,0 +1,145 @@
+<html>
+<head>
+    <title>Boneka Labubu 3</title>
+    <style>
+        .card {
+            background: white;
+            width: 180px;
+            margin: 10px;
+            border-radius: 10px;
+            padding: 15px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 100px;
+        }
+         button {
+            background: #ee4d2d;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .cart {
+            position: fixed;
+            right: 10px;
+            top: 60px;
+            background: white;
+            padding: 15px;
+            width: 240px;
+            border-radius: 10px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+        }
+        .hapus {
+            background: red;
+            margin-left: 10px;
+            padding: 3px 6px;
+        }
+         input, textarea {
+            width: 100%;
+            margin-bottom: 5px;
+            padding: 5px;
+        }
+        body { font-family: Arial; background: #f5f5f5; margin: 0; padding: 30px;}
+        .card { background: white; padding: 20px; border-radius: 10px; max-width: 400px; margin: auto; text-align: center; }
+        img { width: 100%; border-radius: 10px; }
+        .harga { color: #ee4d2d; font-weight: bold; font-size: 20px; margin: 10px 0; }
+        button { background: #ee4d2d; color: white; margin: 10px; border: none; padding: 8px; border-radius: 8px; cursor: pointer; }
+        a { text-decoration: none; }
+
+        p{
+            text-align: justify;
+         }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <img src="https://static.republika.co.id/uploads/images/inpicture_slide/salah-satu-varian-boneka-labubu-meski-harganya-selangit-boneka_240916110102-454.jpg">
+    <h2>Boneka Labubu 5</h2>
+    <p class="harga">Rp45000</p>
+    <p>Boneka Labubu lucu, terbuat dari bahan lembut, cocok untuk hadiah anak-anak atau koleksi. Tinggi 20cm, warna cerah, empuk, aman untuk anak-anak.</p>
+    <button onclick="tambah('Labubu 5',45000)">+ Keranjang</button>
+    <a href="index.html.html"><button>Kembali ke Produk</button></a>
+</div>
+
+<div class="cart">
+    <h4>Keranjang</h4>
+    <ul id="list"></ul>
+
+    <p>Total: Rp<span id="total">0</span></p>
+
+    <hr>
+
+    <h4>Data Pembeli</h4>
+
+    <input type="text" id="nama" placeholder="Nama">
+    <input type="text" id="alamat" placeholder="Alamat bisa di isi nanti">
+    <input type="text" id="hp" placeholder="No HP">
+    <textarea id="catatan" placeholder="Catatan"></textarea>
+
+    <br>
+    <button onclick="checkout()">Checkout</button>
+</div>
+
+<script>
+let total = 0;
+let pesanan = [];
+
+function tambah(nama, harga) {
+    let list = document.getElementById("list");
+
+    let item = document.createElement("li");
+    item.textContent = nama + " - Rp" + harga;
+
+    let btn = document.createElement("button");
+    btn.textContent = "X";
+    btn.className = "hapus";
+
+    btn.onclick = function() {
+        list.removeChild(item);
+        total -= harga;
+        updateTotal();
+    };
+
+    item.appendChild(btn);
+    list.appendChild(item);
+
+    total += harga;
+    pesanan.push(nama);
+
+    updateTotal();
+}
+
+function updateTotal() {
+    document.getElementById("total").textContent = total;
+}
+
+function checkout() {
+    let nama = document.getElementById("nama").value;
+    let alamat = document.getElementById("alamat").value;
+    let hp = document.getElementById("hp").value;
+    let catatan = document.getElementById("catatan").value;
+
+    let teks = "🛒 Pesanan Baru:%0A";
+
+    pesanan.forEach(function(item){
+        teks += "- " + item + "%0A";
+    });
+
+    teks += "%0A💰 Total: Rp" + total;
+    teks += "%0A%0A👤 Nama: " + nama;
+    teks += "%0A📍 Alamat: " + alamat;
+    teks += "%0A📞 No HP: " + hp;
+    teks += "%0A📝 Catatan: " + catatan;
+
+    window.open("https://wa.me/6285762461308?text=" + teks);
+}
+</script>
+
+
+</body>
+</html>
