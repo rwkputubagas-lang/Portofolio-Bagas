@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wuku Fashion</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #f5f5f5;
+    padding-bottom: 70px;
+}
+
+/* NAVBAR */
+.navbar {
+    background: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* BANNER */
+.banner {
+    margin: 10px;
+}
+
+.banner img {
+    width: 100%;
+    border-radius: 12px;
+}
+
+/* KATEGORI */
+.kategori {
+    display: flex;
+    justify-content: space-around;
+    margin: 15px 0;
+}
+
+.kategori div {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+}
+
+/* PRODUK */
+.produk {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+.card {
+    background: white;
+    width: 45%;
+    margin: 10px;
+    border-radius: 12px;
+    padding: 10px;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+}
+
+.card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.harga {
+    color: green;
+    font-weight: bold;
+}
+
+button {
+    width: 100%;
+    padding: 10px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+}
+
+/* PORTOFOLIO */
+.porto {
+    background: white;
+    margin: 10px;
+    padding: 15px;
+    border-radius: 12px;
+}
+
+.porto h3 {
+    margin-top: 0;
+}
+
+/* NAVBAR BAWAH */
+.bottom-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #ddd;
+}
+
+.bottom-nav a {
+    text-decoration: none;
+    color: #888;
+    font-size: 12px;
+    text-align: center;
+    flex: 1;
+    padding: 8px 0;
+}
+
+.bottom-nav a.active {
+    color: black;
+    font-weight: bold;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="navbar">OBSIDIAN</div>
+
+<!-- BANNER -->
+<div class="banner">
+    <img src="https://images.unsplash.com/photo-1521336575822-6da63fb45455">
+</div>
+
+<!-- KATEGORI -->
+<div class="kategori">
+    <div>👕 Pria</div>
+    <div>👗 Wanita</div>
+    <div>👜 Aksesoris</div>
+</div>
+
+<!-- PRODUK -->
+<div class="produk">
+
+    <div class="card">
+        <img src="https://static.republika.co.id/uploads/images/inpicture_slide/salah-satu-varian-boneka-labubu-meski-harganya-selangit-boneka_240916110102-454.jpg">
+        <h4>Labubu 1</h4>
+        <p class="harga">Rp79.000</p>
+        <button onclick="window.location.href='produk1.html'">lihat detail</button>
+    </div>
+
+    <div class="card">
+        <img src="https://static.republika.co.id/uploads/images/inpicture_slide/salah-satu-varian-boneka-labubu-meski-harganya-selangit-boneka_240916110102-454.jpg">
+        <h4>Labubu 2</h4>
+        <p class="harga">Rp120.000</p>
+        <button onclick="window.location.href='produk2.html'">lihat detail</button>
+    </div>
+
+</div>
+
+<!-- PORTOFOLIO -->
+<div class="porto">
+    <h3>Tentang Toko</h3>
+    <p>OBSIDIAN adalah brand lokal yang fokus pada barang modern dengan kualitas premium dan harga terjangkau.</p>
+    <p>✔ 1000+ pelanggan</p>
+    <p>✔ Produk original</p>
+</div>
+
+<!-- NAVBAR BAWAH -->
+<div class="bottom-nav">
+    <a href="home.html" class="active">🏠<br>Home</a>
+    <a href="index.html.html">🛍️<br>Produk</a>
+    <a href="#">👤<br>Admin</a>
+</div>
+
+<script>
+function beli(nama, harga){
+    window.location.href = "checkout.html?produk=" + nama + "&harga=" + harga;
+}
+</script>
+
+</body>
+</html>
